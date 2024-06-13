@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Cinzel', serif;
+  overflow: hidden;
+}
+
+
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-background {
+  min-height: 100vh;
+  background: linear-gradient(45deg, #001f3f, #007bff, #28a745, #6f42c1);
+  background-size: 300% 300%;
+  animation: gradientBackground 20s ease infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.foreground {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.foreground svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.3;
+}
+
+
+.content {
+  z-index: 2;
+  text-align: center;
+}
+
+.content h1 {
+  font-size: 4em;
+  color: #fff;
+}
+
+.content h2 {
+  font-size: 1.5em;
+  color: #fff;
+  text-indent: 30px;
+}
+
+.content p {
+  font-size: 1em;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.content label {
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  color: #fff;
+}
+
+.content input {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+.content button {
+  padding: 10px 20px;
+  font-size: 1.3em;
+  color: #fff;
+  background-color: #2baf9d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.content button:hover {
+  background-color: #0056b3;
+}
+
+.loginLink {
+  color: #FFFF00;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.loginLink:hover {
+  color: #FFA500;
+}
+
+.scroll-container {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
