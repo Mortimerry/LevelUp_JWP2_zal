@@ -83,30 +83,38 @@ def logout():
     return jsonify({'message': 'Wylogowano pomyślnie'}), 200
 
 
-@app.route('/api/tasks', methods=['POST'])
+@app.route('/api/tasks', methods=['GET', 'POST'])
 def create_task():
-    data = request.json
-    user_id = data['user_id']
-    description = data['description']
-    exp_points = data['exp_points']
-    difficulty = data['difficulty']
-    deadline = data['deadline']
+    if request.method == 'GET':
+        tasks = Task.query.all()
+        tasks_data = [{'id': task.id, 'description': task.description, 'exp_points': task.exp_points,
+                       'difficulty': task.difficulty,'completed': task.completed} for task in
+                      tasks]
+        return jsonify(tasks_data)
+        pass
+    elif request.method == 'POST':
+        data = request.json
+        user_id = data['user_id']
+        description = data['description']
+        exp_points = data['exp_points']
+        difficulty = data['difficulty']
+        deadline = data['deadline']
 
-    user = User.query.get(user_id)
-    if not user:
-        return jsonify({'message': 'User not found'}), 404
+        user = User.query.get(user_id)
+        if not user:
+            return jsonify({'message': 'User not found'}), 404
 
-    new_task = Task(
-        description=description,
-        exp_points=exp_points,
-        difficulty=difficulty,
-        deadline=datetime.strptime(deadline, '%Y-%m-%dT%H:%M'),
-        user=user
-    )
-    db.session.add(new_task)
-    db.session.commit()
+        new_task = Task(
+            description=description,
+            exp_points=exp_points,
+            difficulty=difficulty,
+            deadline=datetime.strptime(deadline, '%Y-%m-%dT%H:%M'),
+            user=user
+        )
+        db.session.add(new_task)
+        db.session.commit()
 
-    return jsonify({'message': 'Task created successfully'}), 201
+        return jsonify({'message': 'Task created successfully'}), 201
 
 
 @app.route('/api/tasks/<int:user_id>', methods=['GET'])
@@ -129,6 +137,16 @@ def complete_task(task_id):
     db.session.commit()
 
     return jsonify({'message': 'Zadanie zakończone pomyślnie'}), 200
+
+# ranking
+@app.route('/api/users/ranking', methods=['GET'])
+def get_user_ranking():
+    users = User.query.order_by(User.level.desc()).all()
+    users_data = [{'username': user.username, 'level': user.level} for user in
+                  users]
+    return jsonify(users_data)
+    pass
+
 
 if __name__ == '__main__':
     with app.app_context():
