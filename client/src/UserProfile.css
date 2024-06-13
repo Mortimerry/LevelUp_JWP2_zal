@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
+
+.parchment-container {
+  background: url('https://wallpapers.com/images/hd/parchment-background-wcqupoh75y7i61br.jpg') no-repeat center center;
+  background-size: cover;
+  padding: 20px;
+  border: 1px solid #a67c00;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  margin: 20px auto;
+  font-family: 'Cinzel', serif;
+  color: #4e342e;
+  text-align: center;
+}
+
+.parchment-container h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #3e2723;
+}
+
+.parchment-container p {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.tasks-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.tasks-table th, .tasks-table td {
+  border: 1px solid #a67c00;
+  padding: 12px;
+  text-align: center;
+}
+
+.tasks-table th {
+  background-color: #2baf9c;
+  color: white;
+  font-weight: bold;
+}
+
+.tasks-table td {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.tasks-table tr:nth-child(even) td {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.tasks-table tr:hover td {
+  background-color: #1e7a66;
+}
+
+.tasks-table button {
+  background: #2baf9d;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 5px;
+}
+
