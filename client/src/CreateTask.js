@@ -7,10 +7,10 @@ const CreateTask = ({ userId }) => {
   const [deadline, setDeadline] = useState('');
 
   const difficultyOptions = {
-    easy: 100,
-    medium: 200,
-    hard: 400,
-    extreme: 700,
+    prosty: 100,
+    umiarkowany: 200,
+    trudny: 400,
+    ekstremalny: 700,
   };
 
   const handleDifficultyChange = (e) => {
@@ -60,10 +60,10 @@ const CreateTask = ({ userId }) => {
       <label htmlFor="difficulty">Poziom trudności</label>
       <select value={difficulty} onChange={handleDifficultyChange} required>
         <option value="">Wybierz Poziom Trudności</option>
-        <option value="easy">Łatwy</option>
-        <option value="medium">Średni</option>
-        <option value="hard">Trudny</option>
-        <option value="extreme">Ekstremalny</option>
+        <option value="prosty">Prosty</option>
+        <option value="umiarkowany">Umiarkowany</option>
+        <option value="trudny">Trudny</option>
+        <option value="ekstremalny">Ekstremalny</option>
         onChange={(e) => setDifficulty(e.target.value)}
       </select>
       </div>

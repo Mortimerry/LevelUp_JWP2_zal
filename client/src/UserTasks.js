@@ -98,7 +98,7 @@ const filteredTasks = tasks.filter(task => {
               <td>{task.exp_points}</td>
               <td>{task.difficulty}</td>
               <td>{formatDeadline(task.deadline)}</td>
-              <td>{task.completed ? 'Ukończono!' : <button onClick={() => handleComplete(task.id)}>Complete Task</button>}</td>
+              <td>{task.completed ? 'Ukończono!' : <button onClick={() => handleComplete(task.id)}>Zakończ zadanie</button>}</td>
             </tr>
           ))}
         </tbody>
