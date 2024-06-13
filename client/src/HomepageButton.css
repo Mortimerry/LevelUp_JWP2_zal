@@ -1,0 +1,17 @@
+.App-logo {
+    display: inline-block;
+    position: fixed;
+    top: 30px;
+    left: 350px;
+    width: 128px;
+    height: 128px;
+    overflow: hidden;
+    border-radius: 40%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+}
+
+.App-logo img {
+    object-fit: cover;
+    transition: filter 0.3s ease-in-out;
+}
